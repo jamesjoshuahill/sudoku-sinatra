@@ -1,3 +1,13 @@
+body {
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#sudoku {
+  font-size: 0;
+  text-align: center;
+}
+
 div.box, div.cell {
   display: inline-block;
 }
