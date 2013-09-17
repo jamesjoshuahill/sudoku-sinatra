@@ -15,4 +15,13 @@ div.box, div.cell {
 .cell input {
   width: 30px;
   height: 30px;
+  text-align: center;
+}
+
+.incorrect {
+  background-color: yellow;
+}
+
+.value-provided {
+  background-color: #DDD;
 }
