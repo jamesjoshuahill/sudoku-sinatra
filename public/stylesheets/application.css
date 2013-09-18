@@ -3,6 +3,10 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+#flash {
+  margin: 20px;
+}
+
 #sudoku {
   font-size: 0;
   text-align: center;
