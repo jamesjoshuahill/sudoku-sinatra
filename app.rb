@@ -1,9 +1,11 @@
 require 'bundler/setup'
 require 'sinatra'
+require 'sinatra/partial'
 require_relative './lib/grid'
 require_relative './helpers/application'
 
 enable :sessions
+set :partial_template_engine, :erb
 
 def random_sudoku
   seed = (1..9).to_a.sample(9).join + ('0' * 72)
