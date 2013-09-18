@@ -1,7 +1,5 @@
-        <div class="cell">
-          <!-- every cell will have an input field -->
-          <% cell_value = cell_value(@current_solution[cell_index]) %>
-          <% # puts "row: #{row} * 27 + box: #{box} * 9 + cell_row: #{cell_row} * 3 + cell: #{cell} = #{cell_index} with value: #{cell_value}" %>
-          <% cell_color_class = colour_class(@check_solution, @puzzle[cell_index], @current_solution[cell_index], @solution[cell_index]) %>
-          <input class="<%= cell_color_class %>" name="cell[]" type="text" maxlength="1" autocomplete="off" value="<%= cell_value %>" <%= 'readonly' if cell_color_class == 'value_provided' %>>
-        </div>
+<div class="cell">
+  <% cell_value = cell_value(@current_solution[cell_index]) %>
+  <% cell_color_class = colour_class(@check_solution, @puzzle[cell_index], @current_solution[cell_index], @solution[cell_index]) %>
+  <input class="<%= cell_color_class %>" name="cell[]" type="text" maxlength="1" autocomplete="off" value="<%= cell_value %>" <%= 'readonly' if cell_color_class == 'value_provided' %>>
+</div>
