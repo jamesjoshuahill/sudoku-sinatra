@@ -6,6 +6,7 @@ require_relative './lib/grid'
 require_relative './helpers/application'
 
 enable :sessions
+set :session_secret, "I'm the secret key to sign the cookie"
 set :partial_template_engine, :erb
 use Rack::Flash
 
