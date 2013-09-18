@@ -5,14 +5,20 @@ body {
 }
 
 h1 {
-  
+  margin: 0.5em 0 0.5em 0.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.6em;
+  font-size: 3em;
 }
 
 #flash {
-  line-height: 1.5em;
+  border-radius: 10px;
+  line-height: 2em;
   vertical-align: center;
-  width: 22em;
+  width: 20em;
   margin: 0 auto 1em;
+  font-size: 1em;
+  background: rgb(255, 232, 112);
 }
 
 #sudoku {
@@ -21,18 +27,24 @@ h1 {
 }
 
 #options {
-  margin-top: 1em;
+  margin-top: 2em;
 }
 
 #options a {
   display: inline-block;
-  padding: 0.3em;
+  padding: 0.5em 0.7em;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12pt;
-  -webkit-appearance: button;
+  border-radius: 10px;
+  background-color: white;
+  border: 3px solid chocolate;
   text-decoration: none;
   color: black;
-  margin: 0 0.5em;
+  margin: 0 0.25em;
+}
+
+#options a:hover {
+  background-color: gold;
 }
 
 #footer {
@@ -60,10 +72,11 @@ div.box {
 }
 
 button {
-  margin-top: 2em;
-  padding: 0.3em;
+  padding: 0.5em 0.7em;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12pt;
+  margin: 2em 0.5em 0;
+  border-radius: 10px;
 }
 
 .incorrect {

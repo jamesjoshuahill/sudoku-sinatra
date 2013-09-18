@@ -31,11 +31,11 @@ def generate_new_puzzle_if_necessary
   new_sudoku = random_sudoku
   session[:solution] = new_sudoku
   session[:current_solution] = session[:puzzle] = puzzle(new_sudoku)
+  flash[:notice] ||= "Welcome!"
 end
 
 def prepare_to_check_solution
   @check_solution = session[:check_solution]
-  flash[:notice] = "Wrong numbers are highlighted yellow" if @check_solution
   session[:check_solution] = nil
 end
 
@@ -51,17 +51,21 @@ end
 post '/' do
   cells = params[:cell]
   session[:current_solution] = cells.map(&:to_i).join
-  session[:check_solution] = true
+  if params[:check_solution]
+    session[:check_solution] = true
+    flash[:notice] = "Wrong numbers are highlighted yellow"
+  elsif params[:save_progress]
+    flash[:notice] = "Your progress has been saved"
+  end
   redirect to '/'
 end
 
 get '/solution' do
   redirect to '/' if !session[:current_solution]
-
   @current_solution = session[:solution]
   @solution = session[:solution]
   @puzzle = session[:puzzle]
-  flash[:notice] = "Here is the solution"
+  flash[:notice] = "Given up? Here is the solution"
   erb :index
 end
 
