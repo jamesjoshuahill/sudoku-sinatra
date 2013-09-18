@@ -53,7 +53,7 @@ post '/' do
   session[:current_solution] = cells.map(&:to_i).join
   if params[:check_solution]
     session[:check_solution] = true
-    flash[:notice] = "Wrong numbers are highlighted yellow"
+    flash[:notice] = "Checked. Wrong numbers are orange"
   elsif params[:save_progress]
     flash[:notice] = "Your progress has been saved"
   end
@@ -71,12 +71,12 @@ end
 
 get '/new_puzzle' do
   session[:solution] = session[:puzzle] = session[:current_solution] = session[:check_solution] = nil
-  flash[:notice] = "Here is a new puzzle"
+  flash[:notice] = "Here's a new puzzle. Good luck!"
   redirect to '/'
 end
 
 get '/restart_puzzle' do
   session[:current_solution] = session[:puzzle]
-  flash[:notice] = "Restarted the puzzle"
+  flash[:notice] = "Restarted. Back to the beginning..."
   redirect to '/'
 end

@@ -58,7 +58,7 @@ div.box, div.cell {
 }
 
 div.box {
-  outline: 2px solid black;
+  outline: 3px solid dimgray;
 }
 
 .cell input {
@@ -68,7 +68,7 @@ div.box {
   font-size: 12pt;
   font-family: Helvetica, Arial, sans-serif;
   border: none;
-  outline: 1px solid gray;
+  outline: 1px solid dimgray;
 }
 
 button {
@@ -80,9 +80,9 @@ button {
 }
 
 .incorrect {
-  background-color: yellow;
+  background-color: orange;
 }
 
 .value-provided {
-  background-color: silver;
+  background-color: rgb(255, 232, 112);
 }
