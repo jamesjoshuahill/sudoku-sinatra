@@ -1,4 +1,4 @@
-require 'cell'
+require_relative 'cell'
 
 class Grid
   attr_reader :cells
@@ -114,6 +114,14 @@ class Grid
 
   def to_s
     @cells.flatten.map(&:value).join
+  end
+
+  def to_s_boxes
+    boxes = []
+    9.times do |box|
+      boxes << members_of(box)
+    end
+    boxes.flatten.map(&:value).join
   end
 
   def inspect
