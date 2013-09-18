@@ -9,7 +9,11 @@
   <%= flash[:notice] %>
 </div>
 <%= yield %>
-<div id="options"><a href="/solution">Show the solution</a><a href="/restart">Start a new puzzle</a></div>
+<div id="options">
+  <a href="/solution">Show the solution</a>
+  <a href="/restart_puzzle">Restart this puzzle</a>
+  <a href="/new_puzzle">Start a new puzzle</a>
+</div>
 <div id="footer">
   Built with <a href="https://www.ruby-lang.org">Ruby</a> and <a href="http://www.sinatrarb.com">Sinatra</a><br />
   <a href="https://github.com/jamesjoshuahill/sudoku-sinatra">Source code</a> available on GitHub</div>

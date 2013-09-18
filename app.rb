@@ -14,8 +14,7 @@ def random_sudoku
   seed = (1..9).to_a.sample(9).join + ('0' * 72)
   sudoku = Grid.new(seed)
   sudoku.solve
-  puts sudoku.inspect
-  sudoku.to_s.chars
+  sudoku.to_s_boxes.chars
 end
 
 def puzzle(sudoku)
@@ -66,8 +65,14 @@ get '/solution' do
   erb :index
 end
 
-get '/restart' do
+get '/new_puzzle' do
   session[:solution] = session[:puzzle] = session[:current_solution] = session[:check_solution] = nil
   flash[:notice] = "Here is a new puzzle"
+  redirect to '/'
+end
+
+get '/restart_puzzle' do
+  session[:current_solution] = session[:puzzle]
+  flash[:notice] = "Restarted the puzzle"
   redirect to '/'
 end

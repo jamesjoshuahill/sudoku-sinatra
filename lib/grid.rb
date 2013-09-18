@@ -116,6 +116,14 @@ class Grid
     @cells.flatten.map(&:value).join
   end
 
+  def to_s_boxes
+    boxes = []
+    9.times do |box|
+      boxes << members_of(box)
+    end
+    boxes.flatten.map(&:value).join
+  end
+
   def inspect
     row_separator = ('-' * 37) + "\n"
     grid_as_string = row_separator
