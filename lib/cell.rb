@@ -10,6 +10,10 @@ class Cell
     @value != 0
   end
 
+  def assume(value)
+    @value = value
+  end
+
   def add_neighbours(neighbours)
     @neighbours.concat(neighbours)
     @neighbours.uniq!

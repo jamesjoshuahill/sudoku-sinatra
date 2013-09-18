@@ -24,7 +24,11 @@ class Grid
   end
 
   def cells_solved
-    @cells.flatten.select(&:filled_out?).count
+    @cells.flatten.select(&:filled_out?)
+  end
+
+  def cells_not_solved
+    @cells.flatten - @cells.flatten.select(&:filled_out?)
   end
 
   def solved?
@@ -36,20 +40,34 @@ class Grid
     
     grid_changed_in_last_loop = true
     while !solved? && grid_changed_in_last_loop
-      # puts inspect
-      # puts "Solved? #{solved?}    :    Cells solved #{cells_solved}"
-      grid_changed_in_last_loop = number_of_cells_changed { solve_all_cells }
-      # puts "Solved? #{solved?}    :    Cells solved #{cells_solved}"
+      grid_changed_in_last_loop = grid_changed_by? { solve_all_cells }
+    end
+    try_harder unless solved?
+  end
+
+  def try_harder
+    test_cell = cells_not_solved.first
+    test_cell.possible_values.each do |possible_value|
+      test_cell.assume possible_value
+      test_grid = Grid.new(self.to_s)
+      test_grid.solve
+      if test_grid.solved?
+        take_solution(test_grid.cells)
+        break
+      end
     end
   end
 
-  def number_of_cells_changed
-    cells_solved_before = cells_solved
-    
-    yield
+  def take_solution(cells)
+    @cells = cells
+  end
 
-    cells_solved_after = cells_solved
-    cells_solved_before < cells_solved_after
+  def grid_changed_by?
+    no_solved_before = cells_solved.count
+    yield
+    no_solved_after = cells_solved.count
+
+    no_solved_before < no_solved_after
   end
 
   def solve_all_cells
@@ -92,6 +110,10 @@ class Grid
     [ @cells[row][column, 3],
       @cells[row+1][column, 3],
       @cells[row+2][column, 3] ].flatten
+  end
+
+  def to_s
+    @cells.flatten.map(&:value).join
   end
 
   def inspect

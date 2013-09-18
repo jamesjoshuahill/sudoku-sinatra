@@ -18,6 +18,11 @@ describe Cell do
     expect(cell).not_to be_filled_out
   end
 
+  it 'should be able to assume a value' do
+    cell.assume 5
+    expect(cell.value).to eq 5
+  end
+
   context 'can have neighbours and' do
     it 'should start with none' do
       cell = Cell.new(0)

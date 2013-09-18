@@ -3,6 +3,8 @@ require 'grid'
 describe Grid do
   let(:puzzle) { '015003002000100906270068430490002017501040380003905000900081040860070025037204600' }
   let(:grid) { Grid.new(puzzle) }
+  let(:hard_puzzle) { (1..9).to_a.sample(9).join + ('0' * 72) }
+  let(:hard_grid) { Grid.new(hard_puzzle) }
 
   it 'should have 9 rows' do
     expect(grid.cells.length).to eq 9
@@ -15,6 +17,10 @@ describe Grid do
   it 'should create a grid of cells from a puzzle' do
     expect(grid.cells[0][0].value).to eq 0
     expect(grid.cells[0][2].value).to eq 5
+  end
+
+  it 'should return a string of the grid' do
+    expect(grid.to_s).to eq puzzle
   end
 
   it 'should display the grid' do
@@ -63,5 +69,25 @@ describe Grid do
   it 'should solve easy puzzles' do
     grid.solve
     expect(grid).to be_solved
+  end
+
+  it 'should not try harder to solve easy puzzles' do
+    expect(grid).not_to receive :try_harder
+    grid.solve
+  end
+
+  it 'should list the cells that have not been solved' do
+    expect(grid.cells_not_solved.count).to eq 41
+    expect(grid.cells_not_solved).to include grid.cells[0][0]
+  end
+
+  it 'should try harder to solve hard puzzles' do
+    expect(hard_grid).to receive :try_harder
+    hard_grid.solve
+  end
+
+  it 'should solve hard puzzles' do
+    hard_grid.solve
+    expect(hard_grid).to be_solved
   end
 end
