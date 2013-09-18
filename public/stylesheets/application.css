@@ -1,10 +1,18 @@
 body {
   text-align: center;
   font-family: Helvetica, Arial, sans-serif;
+  font-size: 12pt;
+}
+
+h1 {
+  
 }
 
 #flash {
-  margin: 20px;
+  line-height: 1.5em;
+  vertical-align: center;
+  width: 22em;
+  margin: 0 auto 1em;
 }
 
 #sudoku {
@@ -12,14 +20,50 @@ body {
   text-align: center;
 }
 
+#options {
+  margin-top: 1em;
+}
+
+#options a {
+  display: inline-block;
+  padding: 0.3em;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12pt;
+  -webkit-appearance: button;
+  text-decoration: none;
+  color: black;
+  margin: 0 0.5em;
+}
+
+#footer {
+  margin-top: 2em;
+  font-size: 12pt;
+  line-height: 1.4em;
+}
+
 div.box, div.cell {
   display: inline-block;
 }
 
+div.box {
+  outline: 2px solid black;
+}
+
 .cell input {
-  width: 30px;
-  height: 30px;
+  width: 2.5em;
+  height: 2.5em;
   text-align: center;
+  font-size: 12pt;
+  font-family: Helvetica, Arial, sans-serif;
+  border: none;
+  outline: 1px solid gray;
+}
+
+button {
+  margin-top: 2em;
+  padding: 0.3em;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12pt;
 }
 
 .incorrect {
@@ -27,5 +71,5 @@ div.box, div.cell {
 }
 
 .value-provided {
-  background-color: #DDD;
+  background-color: silver;
 }

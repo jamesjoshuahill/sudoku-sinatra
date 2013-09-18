@@ -14,12 +14,13 @@ def random_sudoku
   seed = (1..9).to_a.sample(9).join + ('0' * 72)
   sudoku = Grid.new(seed)
   sudoku.solve
-  sudoku.to_s_boxes.chars
+  puts sudoku.inspect
+  sudoku.to_s.chars
 end
 
 def puzzle(sudoku)
   puzzle = sudoku.dup
-  random_indices = (0..80).to_a.sample(40)
+  random_indices = (0..80).to_a.sample(50)
   random_indices.each do |index|
     puzzle[index] = 0
   end
@@ -35,7 +36,7 @@ end
 
 def prepare_to_check_solution
   @check_solution = session[:check_solution]
-  flash[:notice] = "Incorrect values are highlighted in yellow" if @check_solution
+  flash[:notice] = "Wrong numbers are highlighted yellow" if @check_solution
   session[:check_solution] = nil
 end
 
@@ -56,13 +57,17 @@ post '/' do
 end
 
 get '/solution' do
+  redirect to '/' if !session[:current_solution]
+
   @current_solution = session[:solution]
   @solution = session[:solution]
   @puzzle = session[:puzzle]
+  flash[:notice] = "Here is the solution"
   erb :index
 end
 
-get '/reset' do
+get '/restart' do
   session[:solution] = session[:puzzle] = session[:current_solution] = session[:check_solution] = nil
+  flash[:notice] = "Here is a new puzzle"
   redirect to '/'
 end
