@@ -19,6 +19,7 @@ end
 
 def puzzle(sudoku)
   difficulties = { easy: 35, medium: 45, hard: 55 }
+  session[:difficulty] = difficulties[@difficulty]
   puzzle = sudoku.dup
   random_indices = (0..80).to_a.sample(difficulties[@difficulty])
   random_indices.each do |index|
@@ -64,6 +65,7 @@ end
 
 get '/solution' do
   redirect to '/' if !session[:current_solution]
+  @difficulty = session[:difficulty]
   @current_solution = session[:solution]
   @solution = session[:solution]
   @puzzle = session[:puzzle]
