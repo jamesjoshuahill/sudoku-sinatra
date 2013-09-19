@@ -1,0 +1,15 @@
+%div#sudoku
+  %form{ action: '/', method: 'post' }
+    / one div for each row
+    - 3.times do |row|
+      %div.row
+        / we want to create separate div elements for boxes to style them using CSS
+        - 3.times do |box|
+          %div.box
+            / each box will have nine cells
+            - 3.times do |cell_row|
+              %div.cell-row
+              - 3.times do |cell|
+                = partial :cell, :locals => { :cell_index => row * 27 + box * 9 + cell_row * 3 + cell }
+    %button{ name: 'save_progress' } Save progress
+    %button{ name: 'check_solution' } Check solution

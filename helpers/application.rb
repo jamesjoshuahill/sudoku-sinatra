@@ -1,6 +1,11 @@
 helpers do
 
-  def colour_class(solution_to_check, puzzle_value, current_solution_value, solution_value)
+  def colour_class(cell_index)
+    solution_to_check = @check_solution
+    puzzle_value = @puzzle[cell_index]
+    current_solution_value = @current_solution[cell_index]
+    solution_value = @solution[cell_index]
+
     must_be_guessed = puzzle_value == 0
     tried_to_guess = current_solution_value.to_i != 0
     guessed_incorrectly = current_solution_value != solution_value

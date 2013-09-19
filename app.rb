@@ -2,12 +2,13 @@ require 'bundler/setup'
 require 'sinatra'
 require 'sinatra/partial'
 require 'rack-flash'
+require 'haml'
+
 require_relative './lib/grid'
 require_relative './helpers/application'
 
 enable :sessions
 set :session_secret, "I'm the secret key to sign the cookie"
-set :partial_template_engine, :erb
 use Rack::Flash
 
 def random_sudoku
@@ -47,7 +48,7 @@ get '/' do
   @current_solution = session[:current_solution]
   @solution = session[:solution]
   @puzzle = session[:puzzle]
-  erb :index
+  haml :index
 end
 
 post '/' do
@@ -69,7 +70,7 @@ get '/solution' do
   @solution = session[:solution]
   @puzzle = session[:puzzle]
   flash[:notice] = "Given up? Here is the solution"
-  erb :index
+  haml :index
 end
 
 get '/new_puzzle' do

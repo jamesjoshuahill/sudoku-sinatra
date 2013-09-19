@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %title Sudoku Game
+    %link{ href: '/stylesheets/application.css', rel: 'stylesheet', type: 'text/css' }
+  %body
+    %h1 Sudoku
+    %div#difficulty
+      Difficulty:
+      = @difficulty.capitalize
+    %div#flash
+      = flash[:notice]
+    = yield
+    %div#options
+      %a{ href: '/solution' } Show the solution
+      %a{ href: '/restart_puzzle' } Restart this puzzle
+      %a{ href: '/new_puzzle' } Start a new puzzle
+    %div#footer
+      %p
+        Built by Josh Hill at
+        %a{ href: 'http://www.makersacademy.com' } Makers Academy
+        using
+        %a{ href: 'https://www.ruby-lang.org' } Ruby
+        and
+        %a{ href: 'http://www.sinatrarb.com' } Sinatra
+      %p
+        %a{ href: 'https://github.com/jamesjoshuahill/sudoku-sinatra' } Source code
+        available on GitHub

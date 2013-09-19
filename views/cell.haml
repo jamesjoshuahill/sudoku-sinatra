@@ -1,0 +1,4 @@
+%div.cell
+  - cell_color_class = colour_class(cell_index)
+  - cell_readonly = cell_color_class == 'value-provided'
+  %input{ class: cell_color_class, name: 'cell[]', type: 'text', maxlength: '1', autocomplete: 'off', value: cell_value(@current_solution[cell_index]), readonly: cell_readonly }
