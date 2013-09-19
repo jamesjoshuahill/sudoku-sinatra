@@ -19,7 +19,6 @@ end
 
 def puzzle(sudoku)
   difficulties = { easy: 35, medium: 45, hard: 55 }
-  session[:difficulty] = difficulties[@difficulty]
   puzzle = sudoku.dup
   random_indices = (0..80).to_a.sample(difficulties[@difficulty])
   random_indices.each do |index|
@@ -43,7 +42,7 @@ end
 
 get '/' do
   prepare_to_check_solution
-  @difficulty = session[:difficulty] || :easy
+  @difficulty = session[:difficulty] = :easy
   generate_new_puzzle_if_necessary
   @current_solution = session[:current_solution]
   @solution = session[:solution]
