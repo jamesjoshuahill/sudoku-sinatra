@@ -12,7 +12,7 @@ h1 {
 }
 
 #difficulty {
-  line-height: 2em;
+  margin: 1em 0 0.5em 0;
 }
 
 #flash {
@@ -31,14 +31,14 @@ h1 {
 }
 
 #options {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
 #options a {
   display: inline-block;
   padding: 0.5em 0.7em;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 12pt;
+  font-size: 11pt;
   border-radius: 10px;
   background-color: white;
   border: 3px solid deepskyblue;
@@ -54,7 +54,10 @@ h1 {
 #footer {
   margin-top: 2em;
   font-size: 10pt;
-  line-height: 1.4em;
+}
+
+#footer p {
+  margin: 0 0 0.5em 0;
 }
 
 div.box, div.cell {
@@ -79,7 +82,7 @@ button {
   padding: 0.5em 0.7em;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12pt;
-  margin: 2em 0.5em 0;
+  margin: 1.5em 0.5em 0;
   border-radius: 10px;
 }
 

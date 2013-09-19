@@ -6,7 +6,6 @@
   %body
     %h1 Sudoku
     %div#difficulty
-      Difficulty:
       = @difficulty.capitalize
     %div#flash
       = flash[:notice]
@@ -15,6 +14,9 @@
       %a{ href: '/solution' } Show the solution
       %a{ href: '/restart_puzzle' } Restart this puzzle
       %a{ href: '/new_puzzle' } Start a new puzzle
+      - alternative = @difficulty == :easy ? 'hard' : 'easy'
+      %a{ href: "/new_puzzle?difficulty=#{alternative}" }
+        = "Switch to #{alternative.capitalize}"
     %div#footer
       %p
         Built by Josh Hill at

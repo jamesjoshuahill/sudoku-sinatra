@@ -19,7 +19,7 @@ def random_sudoku
 end
 
 def puzzle(sudoku)
-  difficulties = { easy: 35, medium: 45, hard: 55 }
+  difficulties = { easy: 35, hard: 55 }
   puzzle = sudoku.dup
   random_indices = (0..80).to_a.sample(difficulties[@difficulty])
   random_indices.each do |index|
@@ -33,7 +33,6 @@ def generate_new_puzzle_if_necessary
   new_sudoku = random_sudoku
   session[:solution] = new_sudoku
   session[:current_solution] = session[:puzzle] = puzzle(new_sudoku)
-  flash[:notice] ||= "Welcome!"
 end
 
 def prepare_to_check_solution
@@ -43,7 +42,11 @@ end
 
 get '/' do
   prepare_to_check_solution
-  @difficulty = session[:difficulty] = :easy
+  if session[:difficulty]
+    @difficulty = session[:difficulty]
+  else
+    @difficulty = session[:difficulty] = :easy
+  end
   generate_new_puzzle_if_necessary
   @current_solution = session[:current_solution]
   @solution = session[:solution]
@@ -75,7 +78,10 @@ end
 
 get '/new_puzzle' do
   session[:solution] = session[:puzzle] = session[:current_solution] = session[:check_solution] = nil
-  flash[:notice] = "Here's a new puzzle. Good luck!"
+  if params[:difficulty]
+    session[:difficulty] = params[:difficulty].to_sym
+  end
+  flash[:notice] = "Here's a new #{session[:difficulty]} puzzle. Good luck!"
   redirect to '/'
 end
 
