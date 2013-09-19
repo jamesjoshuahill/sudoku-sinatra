@@ -5,17 +5,21 @@ body {
 }
 
 h1 {
-  margin: 0.5em 0 0.5em 0.5em;
+  margin: 0.5em 0 0.25em 0.5em;
   text-transform: uppercase;
   letter-spacing: 0.6em;
   font-size: 3em;
+}
+
+#difficulty {
+  line-height: 2em;
 }
 
 #flash {
   border-radius: 10px;
   line-height: 2em;
   vertical-align: center;
-  width: 20em;
+  width: 22em;
   margin: 0 auto 1em;
   font-size: 1em;
   background: rgb(255, 232, 112);
@@ -37,19 +41,19 @@ h1 {
   font-size: 12pt;
   border-radius: 10px;
   background-color: white;
-  border: 3px solid chocolate;
+  border: 3px solid deepskyblue;
   text-decoration: none;
   color: black;
   margin: 0 0.25em;
 }
 
 #options a:hover {
-  background-color: gold;
+  background-color: deepskyblue;
 }
 
 #footer {
   margin-top: 2em;
-  font-size: 12pt;
+  font-size: 10pt;
   line-height: 1.4em;
 }
 
@@ -80,7 +84,13 @@ button {
 }
 
 .incorrect {
-  background-color: orange;
+  background-color: deepskyblue;
+}
+
+.blue_notice {
+  background-color: deepskyblue;
+  padding: 0.1em 0.4em;
+  border-radius: 5px;
 }
 
 .value-provided {

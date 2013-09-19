@@ -18,8 +18,9 @@ def random_sudoku
 end
 
 def puzzle(sudoku)
+  difficulties = { easy: 35, medium: 45, hard: 55 }
   puzzle = sudoku.dup
-  random_indices = (0..80).to_a.sample(50)
+  random_indices = (0..80).to_a.sample(difficulties[@difficulty])
   random_indices.each do |index|
     puzzle[index] = 0
   end
@@ -41,6 +42,7 @@ end
 
 get '/' do
   prepare_to_check_solution
+  @difficulty = session[:difficulty] || :easy
   generate_new_puzzle_if_necessary
   @current_solution = session[:current_solution]
   @solution = session[:solution]
@@ -53,7 +55,7 @@ post '/' do
   session[:current_solution] = cells.map(&:to_i).join
   if params[:check_solution]
     session[:check_solution] = true
-    flash[:notice] = "Checked. Wrong numbers are orange"
+    flash[:notice] = "Checked. Any mistakes are highlighted <span class='blue_notice'>blue</span>"
   elsif params[:save_progress]
     flash[:notice] = "Your progress has been saved"
   end
