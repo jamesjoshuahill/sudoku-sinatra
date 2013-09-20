@@ -3,6 +3,9 @@
   %head
     %title Sudoku Game
     %link{ href: '/stylesheets/application.css', rel: 'stylesheet', type: 'text/css' }
+    %script{ src: 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' }
+    %script
+      $(document).ready( function(){ $("#flash").delay(3000).slideUp(1000); } );
   %body
     %h1 Sudoku
     %div#difficulty
