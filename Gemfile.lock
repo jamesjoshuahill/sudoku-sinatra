@@ -3,6 +3,7 @@ GEM
   specs:
     haml (4.0.3)
       tilt
+    newrelic_rpm (3.6.7.152)
     rack (1.5.2)
     rack-flash3 (1.0.5)
       rack
@@ -24,6 +25,7 @@ PLATFORMS
 
 DEPENDENCIES
   haml
+  newrelic_rpm
   rack-flash3
   sass
   shotgun
