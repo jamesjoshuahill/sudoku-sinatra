@@ -4,6 +4,10 @@ require 'sinatra/partial'
 require 'rack-flash'
 require 'haml'
 
+configure :production do
+  require 'newrelic_rpm'
+end
+
 require_relative './lib/grid'
 require_relative './helpers/application'
 
