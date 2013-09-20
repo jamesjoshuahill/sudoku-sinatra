@@ -1,0 +1,90 @@
+$font-family: Helvetica, Arial, sans-serif
+$yellow: rgb(255, 232, 112)
+$blue: deepskyblue
+$gray: dimgrey 
+
+body
+  text-align: center
+  font-family: $font-family
+  font-size: 12pt
+
+h1
+  margin: 0.5em 0 0.25em 0.5em
+  text-transform: uppercase
+  letter-spacing: 0.6em
+  font-size: 3em
+
+#difficulty
+  margin: 1em 0 0.5em 0
+
+#flash
+  border-radius: 10px
+  line-height: 2em
+  vertical-align: center
+  width: 22em
+  margin: 0 auto 1em
+  font-size: 1em
+  background: $yellow
+
+.blue_notice
+  background-color: $blue
+  padding: 0.1em 0.4em
+  border-radius: 5px
+
+#sudoku
+  font-size: 0
+  text-align: center
+
+#options
+  margin-top: 1em
+
+#options a
+  display: inline-block
+  padding: 0.5em 0.7em
+  font-family: $font-family
+  font-size: 11pt
+  border-radius: 10px
+  background-color: white
+  border: 3px solid $blue
+  text-decoration: none
+  color: black
+  margin: 0 0.25em
+
+#options a:hover
+  background-color: $blue
+
+#footer
+  margin-top: 2em
+  font-size: 10pt
+
+#footer p
+  margin: 0 0 0.5em 0
+
+div.cell
+  display: inline-block
+
+div.box
+  @extend div.cell
+  outline: 3px solid $gray
+
+.cell input
+  width: 2.5em
+  height: 2.5em
+  text-align: center
+  font-size: 12pt
+  font-family: $font-family
+  border: none
+  outline: 1px solid $gray
+
+.incorrect
+  background-color: $blue
+
+.value-provided
+  background-color: $yellow
+  
+button
+  padding: 0.5em 0.7em
+  font-family: $font-family
+  font-size: 12pt
+  margin: 1.5em 0.5em 0
+  border-radius: 10px
