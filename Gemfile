@@ -12,4 +12,9 @@ gem 'unicorn'
 
 group :development, :test do
   gem 'shotgun'
+  gem 'cucumber'
+  gem 'cucumber-sinatra'
+  gem 'gherkin'
+  gem 'rspec'
+  gem 'capybara'
 end
