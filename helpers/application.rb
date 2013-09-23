@@ -1,4 +1,4 @@
-helpers do
+module ApplicationHelpers
 
   def colour_class(cell_index)
     solution_to_check = @check_solution
