@@ -14,11 +14,11 @@ I used the code I wrote in my Week 4 task
 [Sudoku Solver](https://github.com/jamesjoshuahill/sudoku-solver) to generate
 new puzzles.
 
+This web app could be improved by more integration tests and a more
+sophisticated puzzle generator that would check there is only one solution to a
+new puzzle.
+
 I deployed this web app to Heroku:
 [http://dry-gorge-1708.herokuapp.com/](http://dry-gorge-1708.herokuapp.com/)
 
 ![Sudoku in Sinatra](https://raw.github.com/jamesjoshuahill/sudoku-sinatra/master/screenshot.png "Deployment screenshot")
-
-This web app could be improved by more integration tests and a more
-sophisticated puzzle generator that would check there is only one solution to a
-new puzzle.
